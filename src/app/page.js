@@ -44,8 +44,8 @@ const roomTypes = [
     size: 18,
     capacity: 1,
     image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&auto=format&fit=crop",
-    description: "Kamar lebih luas dengan view kota, dilengkapi kitchenette mini dan area kerja ergonomis.",
-    features: ["AC", "Kamar Mandi Dalam", "WiFi", "Kitchenette", "TV", "Ruang Kerja"],
+    description: "Kamar lebih luas dengan view kota, dilengkapi Mini Bar dan area kerja ergonomis.",
+    features: ["AC", "Kamar Mandi Dalam", "WiFi", "Mini Bar", "TV", "Ruang Kerja"],
     isAvailable: true,
     discount: 15 // diskon 15%
   },
@@ -56,7 +56,7 @@ const roomTypes = [
     capacity: 2,
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop",
     description: "Kamar keluarga dengan double bed, area duduk terpisah, dan fasilitas lengkap.",
-    features: ["AC", "Kamar Mandi Dalam", "WiFi", "TV 32'", "Kulkas", "Sofa"],
+    features: ["AC", "Kamar Mandi Dalam", "WiFi", "TV", "Kulkas", "Sofa"],
     isAvailable: false,
     discount: 20 // diskon 20% jika tersedia
   }
