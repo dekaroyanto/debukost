@@ -318,9 +318,9 @@ export default function HomePage() {
             <div>
               <h4 className="font-bold text-lg mb-4">Lokasi</h4>
               <p className="text-gray-400">
-                Jl. Dr. Sutomo No. 45<br />
+                Harjamukti<br />
                 Kota Cirebon<br />
-                Jawa Barat 45121
+                Jawa Barat
               </p>
             </div>
 
