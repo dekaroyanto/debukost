@@ -53,15 +53,14 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    {/* Kontak Button */}
-                    <div className="flex items-center space-x-4">
+                    {/* Kontak Button - Hanya tampil di desktop */}
+                    <div className="hidden md:flex items-center space-x-4">
                         <Button
                             onClick={handleWhatsApp}
                             className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 flex items-center gap-2"
                         >
                             <Phone className="w-4 h-4" />
-                            <span className="hidden md:inline">Kontak Kami</span>
-                            <span className="md:hidden">Kontak</span>
+                            <span>Kontak Kami</span>
                         </Button>
                     </div>
 
@@ -100,10 +99,10 @@ const Navbar = () => {
                                     handleWhatsApp();
                                     setIsMenuOpen(false);
                                 }}
-                                className="w-full justify-center bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600"
+                                className="w-full justify-center bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 flex items-center justify-center gap-2"
                             >
-                                <Phone className="w-4 h-4 mr-2" />
-                                Kontak WhatsApp
+                                <Phone className="w-4 h-4" />
+                                WhatsApp Kami
                             </Button>
                         </div>
                     </div>
