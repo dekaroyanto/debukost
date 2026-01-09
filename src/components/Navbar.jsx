@@ -10,8 +10,8 @@ const Navbar = () => {
 
     const navItems = [
         { name: 'Beranda', href: '#', icon: <Home className="w-4 h-4" /> },
-        { name: 'Kamar', href: '#rooms' },
-        { name: 'Fasilitas', href: '#gallery' },
+        { name: 'Kamar', href: '#kamar' },
+        { name: 'Fasilitas', href: '#fasilitas' },
     ];
 
     const handleWhatsApp = () => {

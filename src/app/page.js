@@ -212,7 +212,7 @@ export default function HomePage() {
         </div>
 
         {/* Room Types */}
-        <div className="mb-16" id="rooms">
+        <div className="mb-16" id="kamar">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Pilihan Kamar</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -228,7 +228,7 @@ export default function HomePage() {
         </div>
 
         {/* Gallery */}
-        <div className="mb-16" id="facilities">
+        <div className="mb-16" id="fasilitas">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Fasilitas Debu Kost</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
