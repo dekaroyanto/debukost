@@ -1,29 +1,40 @@
-'use client';
+"use client";
 
-import { Search, Star, MapPin, Shield, Clock, Award, MessageCircle, Phone } from 'lucide-react';
-import Navbar from '@/components/Navbar';
-import SearchBar from '@/components/SearchBar';
-import PropertyCard from '@/components/PropertyCard';
-import RoomTypeCard from '@/components/RoomTypeCard';
+import {
+  Search,
+  Star,
+  MapPin,
+  Shield,
+  Clock,
+  Award,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import SearchBar from "@/components/SearchBar";
+import PropertyCard from "@/components/PropertyCard";
+import RoomTypeCard from "@/components/RoomTypeCard";
 // import WhatsAppButton from '@/components/WhatsAppButton';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 const propertyData = {
-  name: "Debu Kost",
+  name: "Deris Kost",
   location: "Cirebon",
   rating: 4.8,
   totalReviews: 142,
-  description: "Kost premium dengan fasilitas lengkap di Kota Cirebon. Lingkungan nyaman dan strategis dekat kampus dan perkantoran.",
-  image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&auto=format&fit=crop",
+  description:
+    "Kost premium dengan fasilitas lengkap di Kota Cirebon. Lingkungan nyaman dan strategis dekat kampus dan perkantoran.",
+  image:
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&auto=format&fit=crop",
   price: 2500000,
   type: "Kos Premium",
   capacity: 1,
   amenities: [
-    { icon: 'wifi', label: 'WiFi Cepat' },
-    { icon: 'parking', label: 'Parkir Aman' },
-    { icon: 'gym', label: 'Gym' },
-    { icon: 'food', label: 'Dapur Bersama' }
-  ]
+    { icon: "wifi", label: "WiFi Cepat" },
+    { icon: "parking", label: "Parkir Aman" },
+    { icon: "gym", label: "Gym" },
+    { icon: "food", label: "Dapur Bersama" },
+  ],
 };
 
 const roomTypes = [
@@ -32,84 +43,102 @@ const roomTypes = [
     price: 1500000,
     size: 12,
     capacity: 1,
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1157&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Kamar nyaman dengan tempat tidur single, meja belajar, dan lemari pakaian.",
+    image:
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1157&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Kamar nyaman dengan tempat tidur single, meja belajar, dan lemari pakaian.",
     features: ["AC", "Kamar Mandi Dalam", "WiFi", "Laundry"],
     isAvailable: true,
-    discount: 10 // diskon 10%
+    discount: 10, // diskon 10%
   },
   {
     type: "Deluxe Room",
     price: 2200000,
     size: 18,
     capacity: 1,
-    image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Kamar lebih luas dengan view kota, dilengkapi Mini Bar dan area kerja ergonomis.",
-    features: ["AC", "Kamar Mandi Dalam", "WiFi", "Mini Bar", "TV", "Ruang Kerja"],
+    image:
+      "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Kamar lebih luas dengan view kota, dilengkapi Mini Bar dan area kerja ergonomis.",
+    features: [
+      "AC",
+      "Kamar Mandi Dalam",
+      "WiFi",
+      "Mini Bar",
+      "TV",
+      "Ruang Kerja",
+    ],
     isAvailable: true,
-    discount: 15 // diskon 15%
+    discount: 15, // diskon 15%
   },
   {
     type: "Family Room",
     price: 3500000,
     size: 25,
     capacity: 2,
-    image: "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Kamar keluarga dengan double bed, area duduk terpisah, dan fasilitas lengkap.",
+    image:
+      "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Kamar keluarga dengan double bed, area duduk terpisah, dan fasilitas lengkap.",
     features: ["AC", "Kamar Mandi Dalam", "WiFi", "TV", "Kulkas", "Sofa"],
     isAvailable: false,
-    discount: 20 // diskon 20% jika tersedia
-  }
+    discount: 20, // diskon 20% jika tersedia
+  },
 ];
 
 const features = [
   {
     icon: <Shield className="w-8 h-8" />,
     title: "Keamanan 24/7",
-    description: "CCTV dan satpam berjaga untuk kenyamanan Anda"
+    description: "CCTV dan satpam berjaga untuk kenyamanan Anda",
   },
   {
     icon: <Clock className="w-8 h-8" />,
     title: "Fleksibel",
-    description: "Sewa bulanan atau tahunan sesuai kebutuhan"
+    description: "Sewa bulanan atau tahunan sesuai kebutuhan",
   },
   {
     icon: <Award className="w-8 h-8" />,
     title: "Bersertifikat",
-    description: "Terdaftar resmi dan memiliki izin operasional"
-  }
+    description: "Terdaftar resmi dan memiliki izin operasional",
+  },
 ];
 
 const facilities = [
   {
     name: "Ruang Tamu",
-    image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    image:
+      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Gym",
-    image: "https://images.unsplash.com/photo-1721394747060-7cfc57104f88?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    image:
+      "https://images.unsplash.com/photo-1721394747060-7cfc57104f88?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Dapur Bersama",
-    image: "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    image:
+      "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Area Parkir",
-    image: "https://images.unsplash.com/photo-1726489554330-19c9ccb21bf2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  }
+    image:
+      "https://images.unsplash.com/photo-1726489554330-19c9ccb21bf2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 
 export default function HomePage() {
   const handleWhatsApp = () => {
-    const phoneNumber = '62882006487100';
-    const message = 'Halo Debu Kost, saya tertarik untuk mendapatkan informasi lebih lanjut.';
+    const phoneNumber = "62882006487100";
+    const message =
+      "Halo Deris Kost, saya tertarik untuk mendapatkan informasi lebih lanjut.";
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, "_blank");
   };
 
   const handlePhoneCall = () => {
-    window.location.href = 'tel:+62882006487100';
+    window.location.href = "tel:+62882006487100";
   };
 
   return (
@@ -122,7 +151,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1920&auto=format&fit=crop')`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1920&auto=format&fit=crop')`,
           }}
         />
 
@@ -130,7 +159,9 @@ export default function HomePage() {
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
               Selamat Datang di
-              <span className="block text-blue-500 mt-2">Debu Kost Cirebon</span>
+              <span className="block text-blue-500 mt-2">
+                Deris Kost Cirebon
+              </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Kost premium dengan fasilitas lengkap di jantung Kota Cirebon.
@@ -165,7 +196,9 @@ export default function HomePage() {
       {/* Property Overview */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto -mt-20">
         <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Debu Kost Cirebon</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Deris Kost Cirebon
+          </h2>
           <div className="flex items-center justify-center gap-4 text-gray-600 flex-wrap">
             <span className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-blue-600" />
@@ -179,7 +212,7 @@ export default function HomePage() {
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
                 src={propertyData.image}
-                alt="Debu Kost Cirebon"
+                alt="Deris Kost Cirebon"
                 className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -192,19 +225,27 @@ export default function HomePage() {
         {/* Why Choose Us */}
         <div className="mb-16">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Mengapa Memilih Debu Kost?</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Mengapa Memilih Deris Kost?
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Kami memberikan pengalaman tinggal terbaik dengan fasilitas premium dan pelayanan terbaik
+              Kami memberikan pengalaman tinggal terbaik dengan fasilitas
+              premium dan pelayanan terbaik
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow hover:-translate-y-1">
+              <div
+                key={index}
+                className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow hover:-translate-y-1"
+              >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
             ))}
@@ -214,9 +255,12 @@ export default function HomePage() {
         {/* Room Types */}
         <div className="mb-16" id="kamar">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Pilihan Kamar</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Pilihan Kamar
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Berbagai tipe kamar dengan fasilitas lengkap untuk memenuhi kebutuhan Anda
+              Berbagai tipe kamar dengan fasilitas lengkap untuk memenuhi
+              kebutuhan Anda
             </p>
           </div>
 
@@ -230,7 +274,9 @@ export default function HomePage() {
         {/* Gallery */}
         <div className="mb-16" id="fasilitas">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Fasilitas Debu Kost</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Fasilitas Deris Kost
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Nikmati berbagai fasilitas premium untuk mendukung kenyamanan Anda
             </p>
@@ -238,7 +284,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {facilities.map((facility, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
                 <img
                   src={facility.image}
                   alt={facility.name}
@@ -246,7 +295,9 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end">
                   <div className="p-4 w-full">
-                    <h3 className="text-white text-lg font-semibold">{facility.name}</h3>
+                    <h3 className="text-white text-lg font-semibold">
+                      {facility.name}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -257,14 +308,25 @@ export default function HomePage() {
         {/* Additional Facilities */}
         <div className="mb-16">
           <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Fasilitas Lainnya</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+              Fasilitas Lainnya
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {[
-                "WiFi", "AC", "Laundry Service",
-                "Gym", "Dapur Bersama", "Parkir Luas"
+                "WiFi",
+                "AC",
+                "Laundry Service",
+                "Gym",
+                "Dapur Bersama",
+                "Parkir Luas",
               ].map((facility, index) => (
-                <div key={index} className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-sm font-medium text-gray-800">{facility}</div>
+                <div
+                  key={index}
+                  className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="text-sm font-medium text-gray-800">
+                    {facility}
+                  </div>
                 </div>
               ))}
             </div>
@@ -272,11 +334,17 @@ export default function HomePage() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-8 md:p-12 text-center text-white" id="contact">
+        <div
+          className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-8 md:p-12 text-center text-white"
+          id="contact"
+        >
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Siap Tinggal di Debu Kost?</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              Siap Tinggal di Deris Kost?
+            </h2>
             <p className="text-lg mb-8">
-              Hubungi kami sekarang untuk mendapatkan informasi lengkap, penawaran spesial, dan booking kamar impian Anda!
+              Hubungi kami sekarang untuk mendapatkan informasi lengkap,
+              penawaran spesial, dan booking kamar impian Anda!
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -306,7 +374,7 @@ export default function HomePage() {
                   <span className="text-xl font-bold">D</span>
                 </div>
                 <div>
-                  <span className="text-xl font-bold">Debu</span>
+                  <span className="text-xl font-bold">Deris</span>
                   <span className="text-xl font-bold text-blue-400">Kost</span>
                 </div>
               </div>
@@ -318,8 +386,10 @@ export default function HomePage() {
             <div>
               <h4 className="font-bold text-lg mb-4">Lokasi</h4>
               <p className="text-gray-400">
-                Harjamukti<br />
-                Kota Cirebon<br />
+                Harjamukti
+                <br />
+                Kota Cirebon
+                <br />
                 Jawa Barat
               </p>
             </div>
@@ -328,7 +398,7 @@ export default function HomePage() {
               <h4 className="font-bold text-lg mb-4">Kontak</h4>
               <div className="space-y-2 text-gray-400">
                 <p>📞 0882-0064-87100</p>
-                <p>📧 info@debukost.com</p>
+                <p>📧 info@deriskost.com</p>
                 <p>🕒 08:00 - 21:00 WIB</p>
               </div>
             </div>
