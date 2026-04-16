@@ -146,8 +146,8 @@ export default function HomePage() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-16">
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen flex items-center justify-center pt-16">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -190,11 +190,15 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
+        {/* Faded Gradient Overlay at Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-50 to-transparent pointer-events-none"></div>
       </section>
 
       {/* Property Overview */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto -mt-20">
+      <section
+        id="property-overview"
+        className="py-20 px-4 md:px-8 max-w-7xl mx-auto"
+      >
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
             Deris Kost Cirebon
